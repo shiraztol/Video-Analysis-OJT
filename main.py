@@ -4,8 +4,8 @@ from google.cloud import videointelligence
 video_client = videointelligence.VideoIntelligenceServiceClient()
 
 def procees_video( event, context):
-    gcs_uri = f"gs://YOUR-BUCKET/{event['name']}"
-    output_uri = "gs://YOUR-BUCKET/{}.json".format(event['name'])
+    gcs_uri = f"gs://{event['bucket']}/{event['name']}"
+    output_uri = "gs://results_ojt_video_analysis/{}.json".format(event['name'])
     features = [
     videointelligence.Feature.OBJECT_TRACKING,
     videointelligence.Feature.LABEL_DETECTION,
