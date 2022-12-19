@@ -51,7 +51,7 @@ def procees_video( event, context):
 
 
 
-def func( event, context):
+def file_added_to_bucket(event, context):
     file_type = event["name"].split(".")[-1]
     if file_type == "mp4":
         procees_video( event, context)
