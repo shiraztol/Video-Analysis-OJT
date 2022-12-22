@@ -20,7 +20,8 @@ video_client = videointelligence.VideoIntelligenceServiceClient()
 # This function will process the video and send it to the video intelligence API
 def procees_video( event, context):
     # The name of the video file to analyze
-    file_to_analyze = f"gs://{event['bucket']}/{event['name']}"
+    name = event['name'].split(".")[0]
+    file_to_analyze = f"gs://{event['bucket']}/name"
 
 
     # The path to the location of the results
