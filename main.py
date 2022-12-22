@@ -19,14 +19,15 @@ video_client = videointelligence.VideoIntelligenceServiceClient()
 
 # This function will process the video and send it to the video intelligence API
 def procees_video( event, context):
-    # The name of the video file to analyze without the mp4 extension
+    # The name of the video file to analyze
+    file_to_analyze = f"gs://{event['bucket']}/{event['name']}"
+
+    # The name of the video without the extension
     name = event['name'].split(".")[0]
-    file_to_analyze = f"gs://{event['bucket']}/{name}"
-
-
+    
     # The path to the location of the results
     # This will be a json file
-    output_path = "gs://results_ojt_video_analysis/{}.json".format(event['name'])
+    output_path = "gs://results_ojt_video_analysis/{}.json".format(name)
 
     features = [ # This is the features that will be used to analyze the video
     videointelligence.Feature.OBJECT_TRACKING,
