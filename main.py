@@ -23,8 +23,9 @@ def procees_video( event, context):
     file_to_analyze = f"gs://{event['bucket']}/{event['name']}"
 
     # The name of the video without the extension
-    name = event['name'].split(".")[0]
-    
+    file_name = event['name']
+    name = file_name.split(".")[0]
+
     # The path to the location of the results
     # This will be a json file
     output_path = "gs://results_ojt_video_analysis/{}.json".format(name)
