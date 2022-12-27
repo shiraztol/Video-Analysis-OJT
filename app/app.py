@@ -10,7 +10,7 @@ execution_path = os.getcwd()
 
 from google.cloud import storage
 storage_client = storage.Client()
-bucket_name = 'result_videointelligence'
+bucket_name = 'results_ojt_video_analysis'
 
 app = Flask(__name__, template_folder="templates")
 CORS(app)
